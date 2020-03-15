@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { FsSettingManagementState } from '../states/fs-setting-management.state';
+import { SettingManagementState } from '../states/fs-setting-management.state';
 import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root',
 })
-export class FsSettingManagementStateService {
+export class SettingManagementStateService {
   constructor(private store: Store) {}
 
   getSettingsDetail() {
-    return this.store.selectSnapshot(FsSettingManagementState.getSettings);
+    return this.store.selectSnapshot(SettingManagementState.getSettings);
   }
 
   filterByRoute(routerName:string){
@@ -25,7 +25,7 @@ export class FsSettingManagementStateService {
   }
 }
 
-export class FsSettingManagementParameters {
+export class SettingManagementParameters {
   visible: boolean = false;
   providerName: string = 'G';
   providerKey: string = undefined;

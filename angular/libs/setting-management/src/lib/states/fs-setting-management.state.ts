@@ -1,26 +1,26 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { switchMap, tap } from 'rxjs/operators';
 import { GetSettings, UpdateSettings } from '../actions';
-import { FsSettingManagement } from '../models/fs-setting-management';
-import { FsSettingManagementService } from '../services/fs-setting-management.service';
-import { FsSettingManagementDto } from '../dtos';
+import { SettingManagement } from '../models/fs-setting-management';
+import { SettingManagementService } from '../services/fs-setting-management.service';
+import { SettingManagementDto } from '../dtos';
 
-@State<FsSettingManagement.State>({
-    name: 'FsSettingManagementState',
-    defaults: {} as FsSettingManagement.State,
+@State<SettingManagement.State>({
+    name: 'SettingManagementState',
+    defaults: {} as SettingManagement.State,
 })
 
-export class FsSettingManagementState {
+export class SettingManagementState {
     @Selector()
-    static getSettings({ settings }: FsSettingManagement.State): FsSettingManagementDto.setting[] {
+    static getSettings({ settings }: SettingManagement.State): SettingManagementDto.setting[] {
         return settings;
     }
 
-    constructor(private fsSettingManagementService: FsSettingManagementService) { }
+    constructor(private SettingManagementService: SettingManagementService) { }
 
     @Action(GetSettings)
-    getSettings({ patchState }: StateContext<FsSettingManagement.State>, { payload }: GetSettings) {
-        return this.fsSettingManagementService.getSettings(payload).pipe(
+    getSettings({ patchState }: StateContext<SettingManagement.State>, { payload }: GetSettings) {
+        return this.SettingManagementService.getSettings(payload).pipe(
             tap(settings =>
                 patchState({
                     settings
@@ -30,8 +30,8 @@ export class FsSettingManagementState {
     }
 
     @Action(UpdateSettings)
-    updateSettings({ dispatch }: StateContext<FsSettingManagement.State>, { payload }: UpdateSettings) {
-        return this.fsSettingManagementService
+    updateSettings({ dispatch }: StateContext<SettingManagement.State>, { payload }: UpdateSettings) {
+        return this.SettingManagementService
             .updateSettings( payload )
             .pipe(switchMap(() => (
                 delete payload.data,

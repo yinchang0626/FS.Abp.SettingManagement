@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ChangeDetectorRef, Input, EventEmitter, O
 import { Store, Select } from '@ngxs/store';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
-import { FsSettingManagementDto, FsSettingManagementStateService, UpdateSettings, FsSettingManagementParameters, FsSettingManagementState, GetSettings } from '@fs/setting-management';
+import { SettingManagementDto, SettingManagementStateService, UpdateSettings, SettingManagementParameters, SettingManagementState, GetSettings } from '@fs/setting-management';
 import * as _ from 'lodash';
 import { NzNotificationService } from 'ng-zorro-antd';
 import { NzContextMenuService, NzDropdownMenuComponent } from 'ng-zorro-antd';
@@ -18,17 +18,17 @@ export class DetailComponent implements OnInit {
   @ViewChild(FsNgAlainTreeComponent, {static: false}) fsNgAlainTreeComponent: FsNgAlainTreeComponent;
   public jsonData = {};
 
-  @Select(FsSettingManagementState.getSettings)
-  data$: Observable<FsSettingManagementDto.setting[]>;
+  @Select(SettingManagementState.getSettings)
+  data$: Observable<SettingManagementDto.setting[]>;
 
-  protected _parameters = new FsSettingManagementParameters;
+  protected _parameters = new SettingManagementParameters;
 
   @Input()
-  get parameters(): FsSettingManagementParameters {
+  get parameters(): SettingManagementParameters {
     return this._parameters;
   }
 
-  set parameters(value: FsSettingManagementParameters) {
+  set parameters(value: SettingManagementParameters) {
     console.log(value)
     if (value === this._parameters) return;
     this._parameters = {
@@ -60,8 +60,8 @@ export class DetailComponent implements OnInit {
 
   @Output() readonly isEditChange = new EventEmitter<object>();
 
-  rawsData: FsSettingManagementDto.setting[];
-  valueInput: FsSettingManagementDto.settingKey = {} as FsSettingManagementDto.settingKey;
+  rawsData: SettingManagementDto.setting[];
+  valueInput: SettingManagementDto.settingKey = {} as SettingManagementDto.settingKey;
   settingsDatas = [];
   loading: boolean = false;
   form: FormGroup;
@@ -77,7 +77,7 @@ export class DetailComponent implements OnInit {
   constructor(
     private store: Store,
     private fb: FormBuilder,
-    private fsSettingManagementStateService: FsSettingManagementStateService,
+    private settingManagementStateService: SettingManagementStateService,
     private changeDetectorRef: ChangeDetectorRef,
     private notification: NzNotificationService,
     private nzContextMenuService: NzContextMenuService,
@@ -96,7 +96,7 @@ export class DetailComponent implements OnInit {
       this.jsonData = {};
       this.isExpanded = false;
       if(x){
-        this.rawsData = this.fsSettingManagementStateService.filterByRoute(this.parameters.routerName);
+        this.rawsData = this.settingManagementStateService.filterByRoute(this.parameters.routerName);
         if (this.rawsData) {
           this.data = this.settingsDatas = this.loadDetail(this.rawsData);
           this.expandedKeys = this.settingsDatas.filter(x => x.parentId == null).map(y => y.id);
@@ -191,7 +191,7 @@ export class DetailComponent implements OnInit {
   }
 
   save() {
-    let updateInput: FsSettingManagementDto.settingUpdateInput = {} as FsSettingManagementDto.settingUpdateInput;
+    let updateInput: SettingManagementDto.settingUpdateInput = {} as SettingManagementDto.settingUpdateInput;
     updateInput.data = {};
     updateInput.providerName = this.parameters.providerName;
     updateInput.providerKey = this.parameters.providerKey;

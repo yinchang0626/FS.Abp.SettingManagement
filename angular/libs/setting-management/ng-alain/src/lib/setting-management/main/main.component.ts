@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FsSettingManagementParameters } from '@fs/setting-management';
+import { SettingManagementParameters } from '@fs/setting-management';
 
 @Component({
   selector: 'fs-main',
@@ -7,7 +7,7 @@ import { FsSettingManagementParameters } from '@fs/setting-management';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  parameters = new FsSettingManagementParameters;
+  parameters = new SettingManagementParameters;
   constructor() {
     this.parameters = {
       providerKey: undefined,
