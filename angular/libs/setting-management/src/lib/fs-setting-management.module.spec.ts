@@ -1,14 +1,14 @@
 import { async, TestBed } from '@angular/core/testing';
-import { FsSettingManagementModule } from './fs-setting-management.module';
+import { SettingManagementModule } from './fs-setting-management.module';
 
-describe('FsSettingManagementModule', () => {
+describe('SettingManagementModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FsSettingManagementModule]
+      imports: [SettingManagementModule]
     }).compileComponents();
   }));
 
   it('should create', () => {
-    expect(FsSettingManagementModule).toBeDefined();
+    expect(SettingManagementModule).toBeDefined();
   });
 });

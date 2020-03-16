@@ -1,4 +1,4 @@
-export namespace FsSettingManagementDto {
+export namespace SettingManagementDto {
     
     export interface settingKey {
         providerName: string,

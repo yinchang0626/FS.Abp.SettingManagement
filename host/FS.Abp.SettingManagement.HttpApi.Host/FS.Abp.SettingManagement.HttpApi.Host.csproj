@@ -29,9 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FS.Abp.SettingManagement.HttpApi\FS.Abp.SettingManagement.HttpApi.csproj" />
-    <ProjectReference Include="..\..\src\FS.Abp.SettingManagement.Application\FS.Abp.SettingManagement.Application.csproj" />
-    <ProjectReference Include="..\..\src\FS.Abp.SettingManagement.EntityFrameworkCore\FS.Abp.SettingManagement.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\FS.Abp.SettingManagement.Host.Shared\FS.Abp.SettingManagement.Host.Shared.csproj" />
   </ItemGroup>
 

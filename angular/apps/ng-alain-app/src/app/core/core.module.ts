@@ -1,5 +1,5 @@
 import { NgModule, Injectable } from '@angular/core';
-import { DelonModule, CoreModule as AlainCoreModule } from '@fs/ng-alain';
+import { DelonModule } from '@fs/ng-alain';
 import { HttpClient } from '@angular/common/http'; import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { NgAlainSharedModule } from '@fs/ng-alain/shared';
@@ -59,7 +59,6 @@ const AlainLayouts = [LayoutDefaultComponent, LayoutPassportComponent, LayoutFul
     ...(environment.production ? [] : LOGGERS),
 
     //ng-alain
-    AlainCoreModule,
     DelonModule.forRoot(),
     //@fs/ng-alain
     NgAlainSharedModule.forRoot(),
