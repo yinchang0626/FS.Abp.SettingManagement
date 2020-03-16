@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as _ from 'lodash';
-import { FsSettingManagementParameters } from '@fs/setting-management';
+import { SettingManagementParameters } from '@fs/setting-management';
 
 @Component({
   selector: 'fs-ng-alain-setting-management',
@@ -9,14 +9,14 @@ import { FsSettingManagementParameters } from '@fs/setting-management';
 })
 
 export class ModalComponent implements OnInit {
-  protected _parameters = new FsSettingManagementParameters;
+  protected _parameters = new SettingManagementParameters;
 
   @Input()
-  get parameters(): FsSettingManagementParameters {
+  get parameters(): SettingManagementParameters {
     return this._parameters;
   }
 
-  set parameters(value: FsSettingManagementParameters) {
+  set parameters(value: SettingManagementParameters) {
     if (value === this._parameters) return;
     this._parameters = {
       providerKey: (value.providerKey) ? value.providerKey : undefined,

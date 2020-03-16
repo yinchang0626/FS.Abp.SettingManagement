@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
-import { FsSettingManagementState, FsSettingManagementDto, GetSettings, FsSettingManagementParameters } from '@fs/setting-management';
+import { SettingManagementState, SettingManagementDto, GetSettings, SettingManagementParameters } from '@fs/setting-management';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import * as _ from 'lodash';
@@ -12,17 +12,17 @@ import * as _ from 'lodash';
 })
 
 export class MainComponent implements OnInit {
-  @Select(FsSettingManagementState.getSettings)
-  data$: Observable<FsSettingManagementDto.setting[]>;
+  @Select(SettingManagementState.getSettings)
+  data$: Observable<SettingManagementDto.setting[]>;
 
-  protected _parameters = new FsSettingManagementParameters;
+  protected _parameters = new SettingManagementParameters;
 
   @Input()
-  get parameters(): FsSettingManagementParameters {
+  get parameters(): SettingManagementParameters {
     return this._parameters;
   }
 
-  set parameters(value: FsSettingManagementParameters) {
+  set parameters(value: SettingManagementParameters) {
     if (value === this._parameters) return;
     this._parameters = {
       providerKey: (value.providerKey) ? value.providerKey : undefined,
@@ -33,7 +33,7 @@ export class MainComponent implements OnInit {
     if(value.visible) this.loadData();
   }
 
-  valueInput: FsSettingManagementDto.settingKey = {} as FsSettingManagementDto.settingKey;
+  valueInput: SettingManagementDto.settingKey = {} as SettingManagementDto.settingKey;
   isDirty = {};
   menu = [];
 

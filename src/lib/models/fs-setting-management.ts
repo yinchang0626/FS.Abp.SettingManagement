@@ -1,7 +1,7 @@
-import { FsSettingManagementDto } from '../dtos';
+import { SettingManagementDto } from '../dtos';
 
-export namespace FsSettingManagement {
+export namespace SettingManagement {
     export interface State {
-        settings: FsSettingManagementDto.setting[];
+        settings: SettingManagementDto.setting[];
     }
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FsSettingManagementModule } from '@fs/setting-management';
+import { SettingManagementModule } from '@fs/setting-management';
 import { NgAlainBasicModule } from '@fs/ng-alain/basic';
 import { NgJsonEditorModule } from 'ang-jsoneditor';
 import { ModalComponent } from './components/fs-ng-alain-setting-management/modal/modal.component';
@@ -15,10 +15,10 @@ const COMPONENT = [
 @NgModule({
   declarations: [...COMPONENT],
   imports: [
-    FsSettingManagementModule,
+    SettingManagementModule,
     NgAlainBasicModule,
     NgJsonEditorModule
   ],
-  exports: [...COMPONENT]
+  exports: [...COMPONENT,SettingManagementModule]
 })
 export class SharedModule { }
