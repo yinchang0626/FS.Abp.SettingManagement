@@ -1,1 +1,1 @@
-export * from './fs-setting-management.dto';
+export * from './setting-management.dto';

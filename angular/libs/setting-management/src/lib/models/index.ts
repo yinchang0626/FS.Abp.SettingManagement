@@ -1,1 +1,1 @@
-export * from './fs-setting-management';
+export * from './setting-management.models';

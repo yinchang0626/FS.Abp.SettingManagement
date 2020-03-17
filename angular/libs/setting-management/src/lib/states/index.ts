@@ -1,1 +1,1 @@
-export * from './fs-setting-management.state';
+export * from './setting-management.state';

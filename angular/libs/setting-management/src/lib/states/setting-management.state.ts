@@ -1,8 +1,8 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { switchMap, tap } from 'rxjs/operators';
 import { GetSettings, UpdateSettings } from '../actions';
-import { SettingManagement } from '../models/fs-setting-management';
-import { SettingManagementService } from '../services/fs-setting-management.service';
+import { SettingManagement } from '../models/setting-management.models';
+import { SettingManagementService } from '../services/setting-management.service';
 import { SettingManagementDto } from '../dtos';
 
 @State<SettingManagement.State>({
