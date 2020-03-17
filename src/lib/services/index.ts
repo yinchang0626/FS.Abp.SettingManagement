@@ -1,2 +1,2 @@
-export * from './fs-setting-management.service';
-export * from './fs-setting-management-state.service';
+export * from './setting-management.service';
+export * from './setting-management-state.service';

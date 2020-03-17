@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { SettingManagementState } from '../states/fs-setting-management.state';
+import { SettingManagementState } from '../states/setting-management.state';
 import * as _ from 'lodash';
 
 @Injectable({
