@@ -1,4 +1,4 @@
-import { SettingManagementDto } from '../dtos/fs-setting-management.dto';
+import { SettingManagementDto } from '../dtos/setting-management.dto';
 import { ABP } from '@abp/ng.core';
 
 export class GetSettings{

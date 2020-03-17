@@ -1,4 +1,4 @@
-export * from './fs-setting-management.module';
+export * from './core.module';
 export * from './actions/index';
 export * from './models/index';
 export * from './services/index';

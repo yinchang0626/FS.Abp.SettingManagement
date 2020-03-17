@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RestService, Rest, ABP } from '@abp/ng.core';
-import { SettingManagementDto } from '../dtos/fs-setting-management.dto';
+import { SettingManagementDto } from '../dtos/setting-management.dto';
 
 @Injectable({
     providedIn: 'root',

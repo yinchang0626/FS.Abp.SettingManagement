@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DynamicLayoutComponent, AuthGuard, PermissionGuard } from '@abp/ng.core';
 import { LayoutPassportComponent, LayoutDefaultComponent } from '@fs/ng-alain/basic';
-import { SettingManagementModule } from './setting-management/setting-management.module';
+import { SettingsModule } from './settings/settings.module';
 
 export function LoadSettingManagementModule() {
-  return SettingManagementModule;
+  return SettingsModule;
 }
 
 const routes: Routes = [
