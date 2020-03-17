@@ -4,7 +4,7 @@ using System.Text;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Modularity;
 
-namespace FS.Abp.SettingManagement.HttpApi
+namespace FS.Abp.SettingManagement.Host.HttpApi
 {
     [DependsOn(
         typeof(FS.Abp.SettingManagement.SettingManagementApplicationModule),
