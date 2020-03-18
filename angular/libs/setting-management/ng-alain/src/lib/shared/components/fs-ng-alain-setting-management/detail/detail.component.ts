@@ -29,7 +29,6 @@ export class DetailComponent implements OnInit {
   }
 
   set parameters(value: SettingManagementParameters) {
-    console.log(value)
     if (value === this._parameters) return;
     this._parameters = {
       providerKey: (value.providerKey) ? value.providerKey : undefined,
@@ -143,9 +142,9 @@ export class DetailComponent implements OnInit {
   splitName(x?){
     let result = [];
     let code = x.name.split('.', x.name.split('.').length - 1);
-    code.splice(0, 2);
+    code.splice(0, 1);
     if(code.length > 0){
-      code.forEach((y,i) => {
+      code.forEach((y, i) => {
         result.push({
           id: (i === 0) ? this.parameters.routerName : result[i - 1].id + '.' + y,
           parentId: (i === 0) ? null : result[i - 1].id,
