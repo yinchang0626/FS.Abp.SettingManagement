@@ -6,7 +6,12 @@ using Volo.Abp.Settings;
 
 namespace FS.Abp.SettingManagement
 {
-    public abstract class Factory<T>
+    public interface IFactory<T>
+        where T : class, new()
+    {
+        Task<T> CreateAsync();
+    }
+    public abstract class Factory<T> : IFactory<T>
         where T : class, new()
     {
         protected readonly ISettingProvider _settingProvider;
