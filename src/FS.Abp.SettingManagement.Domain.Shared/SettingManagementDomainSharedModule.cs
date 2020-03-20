@@ -18,7 +18,7 @@ namespace FS.Abp.SettingManagement
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<SettingManagementDomainSharedModule>("FS.Abp.SettingManagement");
+                options.FileSets.AddEmbedded<SettingManagementDomainSharedModule>();
             });
 
             Configure<AbpLocalizationOptions>(options =>
