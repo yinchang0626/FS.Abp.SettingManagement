@@ -15,18 +15,21 @@ namespace FS.Abp.SettingManagement
         where T : class, new()
     {
         protected readonly ISettingProvider _settingProvider;
+
         public Factory(
             ISettingProvider settingProvider
             )
         {
             _settingProvider = settingProvider;
         }
+
         public virtual async Task<T> CreateAsync()
         {
             var result = new T();
-            await CreateAsync(new T()).ConfigureAwait(false);
+            await CreateAsync(result).ConfigureAwait(false);
             return result;
         }
+
         protected abstract Task CreateAsync(T options);
     }
 }
