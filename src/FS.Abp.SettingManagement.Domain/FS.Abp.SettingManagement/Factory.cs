@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Settings;
-
+//todo: move to framework
 namespace FS.Abp.SettingManagement
 {
     public interface IFactory<T>
