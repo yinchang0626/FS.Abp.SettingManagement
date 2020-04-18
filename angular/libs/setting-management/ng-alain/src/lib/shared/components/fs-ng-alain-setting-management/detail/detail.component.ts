@@ -165,7 +165,15 @@ export class DetailComponent implements OnInit {
       var isListValue = _.startsWith(x.value, '[');
       isListValue ? this.jsonData[x.name] = JSON.parse(x.value) : this.jsonData[x.name] = x.value;
     } else {
-      this.jsonData[x.name] = x.value;
+      if(x.properties.Type.toLocaleLowerCase().trim() == 'boolean') {
+        let value = false;
+        try {
+          value = JSON.parse(x.value.toLocaleLowerCase().trim());
+        } catch { }
+        this.jsonData[x.name] = value;
+      } else {
+        this.jsonData[x.name] = x.value;
+      }
     }
   }
 
