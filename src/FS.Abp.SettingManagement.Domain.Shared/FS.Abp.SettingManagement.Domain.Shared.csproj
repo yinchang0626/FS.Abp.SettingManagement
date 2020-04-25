@@ -19,6 +19,25 @@
 
   <ItemGroup>
     <None Remove="Localization\SettingManagement\zh-hant.json" />
+    <None Remove="_Generated\Localization\SettingManagement\en.json" />
+    <None Remove="_Generated\Localization\SettingManagement\zh-Hant.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="_Generated\Localization\SettingManagement\en.json" />
+    <EmbeddedResource Include="_Generated\Localization\SettingManagement\zh-Hant.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DataModel\DataModel.efml">
+      <Generator>DevartEFCoreGenerator</Generator>
+      <LastGenOutput>DataModel.info</LastGenOutput>
+    </None>
+    <None Update="DataModel\DataModel.info">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataModel.efml</DependentUpon>
+    </None>
   </ItemGroup>
 
 </Project>

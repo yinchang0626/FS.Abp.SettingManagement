@@ -28,6 +28,12 @@ using System;
 using System.Linq;
 using Microsoft.AspNetCore.Cors;
 using Volo.Abp.AspNetCore.Mvc;
+using Volo.Abp.PermissionManagement.Identity;
+using Volo.Abp.PermissionManagement;
+using Volo.Abp.PermissionManagement.HttpApi;
+using Volo.Abp.Identity;
+using Volo.Abp.IdentityServer.EntityFrameworkCore;
+using Volo.Abp.Identity.EntityFrameworkCore;
 
 namespace FS.Abp.SettingManagement
 {
@@ -39,8 +45,18 @@ namespace FS.Abp.SettingManagement
         typeof(AbpAutofacModule),
         typeof(AbpEntityFrameworkCoreSqlServerModule),
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
+        typeof(AbpPermissionManagementDomainIdentityModule),
         typeof(AbpPermissionManagementEntityFrameworkCoreModule),
-        typeof(AbpSettingManagementEntityFrameworkCoreModule)
+        typeof(AbpPermissionManagementApplicationModule),
+        typeof(AbpPermissionManagementHttpApiModule),
+        typeof(AbpSettingManagementEntityFrameworkCoreModule),
+        typeof(AbpIdentityEntityFrameworkCoreModule),
+        typeof(AbpIdentityApplicationModule),
+        typeof(AbpIdentityHttpApiModule),
+        typeof(AbpIdentityServerEntityFrameworkCoreModule),
+        typeof(FS.Abp.SettingManagement.EntityFrameworkCore.SettingManagementEntityFrameworkCoreModule),
+        typeof(FS.Abp.SettingManagement.SettingManagementApplicationModule),
+        typeof(FS.Abp.SettingManagement.SettingManagementHttpApiModule)
         )]
     public class SettingManagementHttpApiHostModule : AbpModule
     {

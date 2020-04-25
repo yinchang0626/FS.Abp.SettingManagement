@@ -11,7 +11,7 @@ export class SettingManagementConfigService {
       name: 'Setting management',
       path: 'setting-management',
       parentName: 'AbpUiNavigation::Menu:Administration',
-      // requiredPolicy: 'AbpAccount.SettingManagement',
+      requiredPolicy: 'FS.Abp.SettingManagement.Core.DevelopPage',
       layout: eLayoutType.application,
       order: 6,
       iconClass: 'fa fa-cog',

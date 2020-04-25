@@ -1,0 +1,14 @@
+﻿{
+  "culture": "zh-Hant",
+  "texts": {
+    "DisplayName:DevelopPagePermissions.Create": "開發人員頁",
+    "DevelopPagePermissions.Create": "Create",
+    "Description:DevelopPagePermissions.Create": "Create",
+    "DevelopPagePermissions.Edit": "Edit",
+    "DisplayName:DevelopPagePermissions.Edit": "Edit",
+    "Description:DevelopPagePermissions.Edit": "Edit",
+    "DevelopPagePermissions.Delete": "Delete",
+    "DisplayName:DevelopPagePermissions.Delete": "Delete",
+    "Description:DevelopPagePermissions.Delete": "Delete"
+  }
+}
