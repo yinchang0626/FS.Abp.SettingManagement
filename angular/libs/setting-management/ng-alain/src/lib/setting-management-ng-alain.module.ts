@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgAlainBasicModule } from '@fs/ng-alain/basic';
 import { SettingManagementNgAlainRoutingModule } from './setting-management-ng-alain-routing.module';
@@ -13,7 +13,7 @@ import { SettingsModule } from './settings/settings.module';
     SettingsModule
   ],
   exports: [
-    SharedModule
-  ]
+    SharedModule,
+  ],
 })
 export class SettingManagementNgAlainModule {}
