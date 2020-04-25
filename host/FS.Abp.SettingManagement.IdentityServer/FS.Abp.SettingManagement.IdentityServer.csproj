@@ -47,6 +47,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200425043420_UseMigration.cs" />
+    <Compile Remove="Migrations\20200425043420_UseMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200425044555_Update.cs" />
+    <Compile Remove="Migrations\20200425044555_Update.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Pages\**\*.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -1,38 +1,21 @@
-import { NgModule, Injectable } from '@angular/core';
-import { DelonModule } from '@fs/ng-alain';
-import { HttpClient } from '@angular/common/http'; import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { NgModule  } from '@angular/core';
+
 import { NgAlainSharedModule } from '@fs/ng-alain/shared';
-import { LAYOUTS } from '@abp/ng.theme.basic';
-import { CoreModule as AbpCoreModule, RestService, addAbpRoutes, eLayoutType } from '@abp/ng.core';
+
+import { CoreModule as AbpCoreModule } from '@abp/ng.core';
 import { environment } from '../../environments/environment';
 import { ThemeSharedModule } from '@abp/ng.theme.shared';
-import { OAuthModule } from 'angular-oauth2-oidc';
+
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsModule } from '@ngxs/store';
-import { AccountConfigModule, AccountConfigService } from '@abp/ng.account.config';
+import { AccountConfigModule } from '@abp/ng.account.config';
 import { IdentityConfigModule } from '@abp/ng.identity.config';
 import { TenantManagementConfigModule } from '@abp/ng.tenant-management.config';
 import { SettingManagementConfigModule } from '@fs/setting-management/config';
 import { LayoutDefaultComponent, LayoutPassportComponent, LayoutFullScreenComponent } from '@fs/ng-alain/basic';
-import { Router } from '@angular/router';
+import {CoreModule as FSCoreModule} from '@fs/core';
 
 
-// 加载i18n语言文件
-export function I18nHttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, `assets/tmp/i18n/`, '.json');
-}
-
-const I18NSERVICE_MODULES = [
-  TranslateModule.forRoot({
-    loader: {
-      provide: TranslateLoader,
-      useFactory: I18nHttpLoaderFactory,
-      deps: [HttpClient],
-    },
-    isolate: true
-  }),
-];
 
 const LOGGERS = [NgxsLoggerPluginModule.forRoot({ disabled: false })];
 const AlainLayouts = [LayoutDefaultComponent, LayoutPassportComponent, LayoutFullScreenComponent];
@@ -41,13 +24,10 @@ const AlainLayouts = [LayoutDefaultComponent, LayoutPassportComponent, LayoutFul
   declarations: [
   ],
   imports: [
-    ...I18NSERVICE_MODULES,
+    FSCoreModule.forRoot({layouts:AlainLayouts}),
     //abp
     AbpCoreModule.forRoot({
-      environment,
-      requirements: {
-        layouts: AlainLayouts,
-      },
+      environment
     }),
     ThemeSharedModule.forRoot(),
     AccountConfigModule.forRoot({ redirectUrl: '/' }),
@@ -58,10 +38,8 @@ const AlainLayouts = [LayoutDefaultComponent, LayoutPassportComponent, LayoutFul
 
     ...(environment.production ? [] : LOGGERS),
 
-    //ng-alain
-    DelonModule.forRoot(),
     //@fs/ng-alain
-    NgAlainSharedModule.forRoot(),
+    NgAlainSharedModule,
     //modules
   ],
   exports: [

@@ -266,13 +266,13 @@ var luxon = (function (exports) {
     minute: n,
     second: n
   };
-  var TIME_WITH_SHORT_OFFS.AbpET = {
+  var TIME_WITH_SHORT_OFFSET = {
     hour: n,
     minute: n,
     second: n,
     timeZoneName: s
   };
-  var TIME_WITH_LONG_OFFS.AbpET = {
+  var TIME_WITH_LONG_OFFSET = {
     hour: n,
     minute: n,
     second: n,
@@ -297,7 +297,7 @@ var luxon = (function (exports) {
    * {@link toLocaleString}; format like '09:30:23 EDT', always 24-hour.
    */
 
-  var TIME_24_WITH_SHORT_OFFS.AbpET = {
+  var TIME_24_WITH_SHORT_OFFSET = {
     hour: n,
     minute: n,
     second: n,
@@ -308,7 +308,7 @@ var luxon = (function (exports) {
    * {@link toLocaleString}; format like '09:30:23 Eastern Daylight Time', always 24-hour.
    */
 
-  var TIME_24_WITH_LONG_OFFS.AbpET = {
+  var TIME_24_WITH_LONG_OFFSET = {
     hour: n,
     minute: n,
     second: n,
@@ -808,10 +808,10 @@ var luxon = (function (exports) {
       case stringify(TIME_WITH_SECONDS):
         return "h:mm:ss a";
 
-      case stringify(TIME_WITH_SHORT_OFFS.AbpET):
+      case stringify(TIME_WITH_SHORT_OFFSET):
         return "h:mm a";
 
-      case stringify(TIME_WITH_LONG_OFFS.AbpET):
+      case stringify(TIME_WITH_LONG_OFFSET):
         return "h:mm a";
 
       case stringify(TIME_24_SIMPLE):
@@ -820,10 +820,10 @@ var luxon = (function (exports) {
       case stringify(TIME_24_WITH_SECONDS):
         return "HH:mm:ss";
 
-      case stringify(TIME_24_WITH_SHORT_OFFS.AbpET):
+      case stringify(TIME_24_WITH_SHORT_OFFSET):
         return "HH:mm";
 
-      case stringify(TIME_24_WITH_LONG_OFFS.AbpET):
+      case stringify(TIME_24_WITH_LONG_OFFSET):
         return "HH:mm";
 
       case stringify(DATETIME_SHORT):
@@ -892,12 +892,12 @@ var luxon = (function (exports) {
     DDDD: DATE_HUGE,
     t: TIME_SIMPLE,
     tt: TIME_WITH_SECONDS,
-    ttt: TIME_WITH_SHORT_OFFS.AbpET,
-    tttt: TIME_WITH_LONG_OFFS.AbpET,
+    ttt: TIME_WITH_SHORT_OFFSET,
+    tttt: TIME_WITH_LONG_OFFSET,
     T: TIME_24_SIMPLE,
     TT: TIME_24_WITH_SECONDS,
-    TTT: TIME_24_WITH_SHORT_OFFS.AbpET,
-    TTTT: TIME_24_WITH_LONG_OFFS.AbpET,
+    TTT: TIME_24_WITH_SHORT_OFFSET,
+    TTTT: TIME_24_WITH_LONG_OFFSET,
     f: DATETIME_SHORT,
     ff: DATETIME_MED,
     fff: DATETIME_FULL,
@@ -8088,9 +8088,9 @@ var luxon = (function (exports) {
        */
 
     }, {
-      key: "TIME_WITH_SHORT_OFFS.AbpET",
+      key: "TIME_WITH_SHORT_OFFSET",
       get: function get() {
-        return TIME_WITH_SHORT_OFFS.AbpET;
+        return TIME_WITH_SHORT_OFFSET;
       }
       /**
        * {@link toLocaleString} format like '09:30:23 AM Eastern Daylight Time'. Only 12-hour if the locale is.
@@ -8098,9 +8098,9 @@ var luxon = (function (exports) {
        */
 
     }, {
-      key: "TIME_WITH_LONG_OFFS.AbpET",
+      key: "TIME_WITH_LONG_OFFSET",
       get: function get() {
-        return TIME_WITH_LONG_OFFS.AbpET;
+        return TIME_WITH_LONG_OFFSET;
       }
       /**
        * {@link toLocaleString} format like '09:30', always 24-hour.
@@ -8128,9 +8128,9 @@ var luxon = (function (exports) {
        */
 
     }, {
-      key: "TIME_24_WITH_SHORT_OFFS.AbpET",
+      key: "TIME_24_WITH_SHORT_OFFSET",
       get: function get() {
-        return TIME_24_WITH_SHORT_OFFS.AbpET;
+        return TIME_24_WITH_SHORT_OFFSET;
       }
       /**
        * {@link toLocaleString} format like '09:30:23 Eastern Daylight Time', always 24-hour.
@@ -8138,9 +8138,9 @@ var luxon = (function (exports) {
        */
 
     }, {
-      key: "TIME_24_WITH_LONG_OFFS.AbpET",
+      key: "TIME_24_WITH_LONG_OFFSET",
       get: function get() {
-        return TIME_24_WITH_LONG_OFFS.AbpET;
+        return TIME_24_WITH_LONG_OFFSET;
       }
       /**
        * {@link toLocaleString} format like '10/14/1983, 9:30 AM'. Only 12-hour if the locale is.
