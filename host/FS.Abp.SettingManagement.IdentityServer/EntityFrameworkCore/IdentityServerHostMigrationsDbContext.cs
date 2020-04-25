@@ -22,6 +22,7 @@ namespace FS.Abp.SettingManagement.EntityFrameworkCore
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ConfigurePermissionManagement();
+            //Volo.Abp.SettingManagement.EntityFrameworkCore.SettingManagementDbContextModelBuilderExtensions.ConfigureSettingManagement();
             modelBuilder.ConfigureSettingManagement();
             modelBuilder.ConfigureAuditLogging();
             modelBuilder.ConfigureIdentity();

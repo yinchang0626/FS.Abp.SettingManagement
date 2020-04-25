@@ -6257,7 +6257,7 @@
     DROPDOWN_TOGGLE: '.dropdown-toggle'
   };
   var OffsetMethod = {
-    OFFS.AbpET: 'offset',
+    OFFSET: 'offset',
     POSITION: 'position'
     /**
      * ------------------------------------------------------------------------
@@ -6296,7 +6296,7 @@
     _proto.refresh = function refresh() {
       var _this2 = this;
 
-      var autoMethod = this._scrollElement === this._scrollElement.window ? OffsetMethod.OFFS.AbpET : OffsetMethod.POSITION;
+      var autoMethod = this._scrollElement === this._scrollElement.window ? OffsetMethod.OFFSET : OffsetMethod.POSITION;
       var offsetMethod = this._config.method === 'auto' ? autoMethod : this._config.method;
       var offsetBase = offsetMethod === OffsetMethod.POSITION ? this._getScrollTop() : 0;
       this._offsets = [];
