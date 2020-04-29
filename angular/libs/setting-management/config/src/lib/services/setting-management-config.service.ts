@@ -20,7 +20,7 @@ export class SettingManagementConfigService {
           path: 'settings',
           name: '系統設定',
           order: 1,
-          // requiredPolicy: 'AbpTenantManagement.Tenants',
+          requiredPolicy: 'FS.Abp.SettingManagement.Core.DevelopPage',
         },
       ],      
     } as ABP.FullRoute;

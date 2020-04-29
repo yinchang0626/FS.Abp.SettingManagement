@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input ,OnDestroy } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { SettingManagementState, SettingManagementDto, GetSettings, SettingManagementParameters } from '@fs/setting-management';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import * as _ from 'lodash';
+import { takeUntilDestroy } from '@abp/ng.core';
 
 @Component({
   selector: 'fs-ng-alain-setting-management-main',
@@ -11,7 +12,7 @@ import * as _ from 'lodash';
   styleUrls: ['./main.component.less']
 })
 
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit,OnDestroy  {
   @Select(SettingManagementState.getSettings)
   data$: Observable<SettingManagementDto.setting[]>;
 
@@ -36,6 +37,7 @@ export class MainComponent implements OnInit {
   valueInput: SettingManagementDto.settingKey = {} as SettingManagementDto.settingKey;
   isDirty = {};
   menu = [];
+  selectedRouterName;
 
   loading: boolean = false;
   constructor(
@@ -43,7 +45,7 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.data$.subscribe(x => {
+    this.data$.pipe(takeUntilDestroy(this)).subscribe(x => {
       this.isDirty = {};
       this.menu = [];
       if(x){
@@ -52,7 +54,9 @@ export class MainComponent implements OnInit {
         });
         this.menu =  _.uniqBy(splitMenu, String).map(res => {
           return res[0] + "." + res[1];
-        })
+        });
+        if(!this.selectedRouterName)
+          this.setRouterName(_.first(this.menu));
       }
     })
   }
@@ -70,6 +74,7 @@ export class MainComponent implements OnInit {
   }
 
   setRouterName(name: string) {
+    this.selectedRouterName = name;
     this.parameters = {
       providerKey: this.parameters.providerKey,
       providerName: this.parameters.providerName,
@@ -88,4 +93,5 @@ export class MainComponent implements OnInit {
     }
     return (check) ? 'textColor' : '';
   }
+  ngOnDestroy(): void {}
 }
