@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { addAbpRoutes, eLayoutType, ABP } from '@abp/ng.core';
-import { Store } from '@ngxs/store';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SettingManagementConfigService {
-  constructor(private store: Store) {
+  constructor() {
     const route = {
       name: 'Setting management',
       path: 'setting-management',
